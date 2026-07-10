@@ -1,1592 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABTAIN ALI | Software Engineer</title>
-    <style>
-        /* Cosmic Cyberpunk Theme */
-        :root {
-            --neon-blue: #0ff0fc;
-            --neon-pink: #ff2ced;
-            --neon-purple: #9d00ff;
-            --matrix-green: #00ff41;
-            --cyber-dark: #0a0a12;
-            --cyber-gray: #1a1a2e;
-            --cyber-light: #e2e2e2;
-            --hacker-orange: #ff5e00;
-        }
-
-        /* Cyberpunk Font Face */
-        @font-face {
-            font-family: 'Cyber';
-            src: url('https://assets.codepen.io/2585/CyberwayRiders-lg97d.ttf') format('truetype');
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--cyber-dark);
-            color: var(--cyber-light);
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Unique Glitch Effect */
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); }
-            100% { transform: translate(0); }
-        }
-
-        /* Cyber Grid Background */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(10, 10, 18, 0.8), rgba(10, 10, 18, 0.8)),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M0 0h40v40H0z" fill="none"/><path d="M0 20h40M20 0v40" stroke="%231a1a2e" stroke-width="0.5"/></svg>');
-            z-index: -1;
-        }
-
-        /* Cyber Circuit Animation */
-        @keyframes circuit {
-            0% { stroke-dashoffset: 1000; }
-            100% { stroke-dashoffset: 0; }
-        }
-
-        .circuit {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .circuit path {
-            stroke: var(--neon-blue);
-            stroke-width: 0.5;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: circuit 20s linear infinite;
-        }
-
-        /* Professional 3D Elements */
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-shape {
-            position: absolute;
-            opacity: 0.05;
-            filter: blur(1px);
-            animation: float-shape 25s infinite linear;
-        }
-
-        @keyframes float-shape {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(5vw, 10vh) rotate(90deg); }
-            50% { transform: translate(10vw, 5vh) rotate(180deg); }
-            75% { transform: translate(5vw, -5vh) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-
-        /* Unique Header with Holographic Effect */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(10, 10, 18, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-        }
-        
-        .logo-img {
-                height: 40px;
-                width: auto;
-                margin-right: 10px;
-                vertical-align: middle;
-          }
-        .logo {
-            font-family: 'Cyber', sans-serif;
-            font-size: 2rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
-        }
-
-        .logo:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* Cybernetic Navigation */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--cyber-light);
-            text-decoration: none;
-            font-size: 1.1rem;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--neon-blue);
-            text-shadow: 0 0 5px var(--neon-blue);
-        }
-
-        nav a:hover::before {
-            width: 100%;
-        }
-
-        /* Holographic Button */
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: transparent;
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
-            transition: all 0.5s ease;
-        }
-
-        .btn:hover {
-            background: rgba(0, 255, 65, 0.1);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
-            transform: translateY(-3px);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        /* Main Content Sections */
-        section {
-            min-height: 100vh;
-            padding: 8rem 5% 4rem;
-            position: relative;
-        }
-
-        /* Hero Section with Matrix Rain Effect */
-        #hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero-content h1 {
-            font-family: 'Cyber', sans-serif;
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue);
-            line-height: 1.2;
-            position: relative;
-            animation: glitch 1s linear infinite;
-        }
-
-        .hero-content h1 span {
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--cyber-light);
-            position: relative;
-        }
-
-        .hero-image {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 50px rgba(0, 255, 65, 0.5);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 50px rgba(0, 255, 65, 0.5); }
-            50% { box-shadow: 0 0 80px rgba(0, 255, 65, 0.8); }
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            border: 2px dashed var(--neon-blue);
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .hero-image img {
-            width: 95%;
-            height: 95%;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: grayscale(30%) contrast(120%);
-            border: 5px solid var(--cyber-dark);
-        }
-
-        /* Social Links with Holographic Effect */
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--cyber-light);
-            font-size: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
-            transition: all 0.5s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--neon-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
-            border-color: var(--neon-blue);
-        }
-
-        .social-links a:hover::before {
-            left: 100%;
-        }
-
-        /* About Section with Binary Code Animation */
-        #about {
-            background: rgba(10, 10, 18, 0.7);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(0, 255, 65, 0.2);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-        }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .about-image {
-            position: relative;
-            min-width: 400px;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--neon-pink);
-            z-index: -1;
-            animation: glitch 2s linear infinite;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            filter: grayscale(50%) contrast(120%);
-            border: 5px solid var(--cyber-gray);
-            transition: all 0.5s ease;
-        }
-
-        .about-image:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        .about-content {
-            position: relative;
-        }
-
-        .about-content h2 {
-            font-family: 'Cyber', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Binary Code Animation */
-        .binary-code {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .binary-digit {
-            position: absolute;
-            color: var(--matrix-green);
-            font-size: 1rem;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        /* Skills Section */
-        #skills {
-            background: rgba(10, 10, 18, 0.7);
-            backdrop-filter: blur(10px);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-category {
-            background: rgba(26, 26, 46, 0.5);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .skill-category h3 {
-            font-family: 'Cyber', sans-serif;
-            color: var(--neon-blue);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            text-shadow: 0 0 5px var(--neon-blue);
-        }
-
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background: var(--cyber-gray);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-level {
-            height: 100%;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
-            border-radius: 4px;
-        }
-
-        /* Experience Section */
-        #experience {
-            background: rgba(10, 10, 18, 0.7);
-            backdrop-filter: blur(10px);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: var(--matrix-green);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            padding: 20px;
-            background: rgba(26, 26, 46, 0.7);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .timeline-content:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 20px rgba(255, 44, 237, 0.3);
-        }
-
-        .timeline-date {
-            color: var(--neon-blue);
-            font-weight: bold;
-        }
-
-        .timeline-title {
-            font-family: 'Cyber', sans-serif;
-            color: var(--neon-pink);
-            margin: 10px 0;
-        }
-
-        .timeline-desc {
-            font-size: 0.9rem;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--neon-blue);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        /* Education Section */
-        #education {
-            background: rgba(10, 10, 18, 0.7);
-            backdrop-filter: blur(10px);
-        }
-
-        .education-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .education-card {
-            background: rgba(26, 26, 46, 0.5);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .education-card:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .education-degree {
-            font-family: 'Cyber', sans-serif;
-            color: var(--neon-pink);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .education-institution {
-            color: var(--neon-blue);
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .education-duration {
-            color: var(--matrix-green);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .education-desc {
-            font-size: 0.9rem;
-        }
-
-        /* Projects Section with Holographic Cards */
-        #projects {
-            background: rgba(10, 10, 18, 0.7);
-            backdrop-filter: blur(10px);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: rgba(26, 26, 46, 0.5);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 65, 0.05), transparent);
-            z-index: -1;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 255, 65, 0.3);
-            border-color: var(--neon-blue);
-        }
-
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--neon-blue);
-            font-family: 'Cyber', sans-serif;
-        }
-
-        .project-info p {
-            margin-bottom: 1.5rem;
-            color: var(--cyber-light);
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-item {
-            padding: 0.3rem 0.8rem;
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid var(--matrix-green);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--matrix-green);
-        }
-
-        /* Contact Section with Interactive Hologram */
-        #contact {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h2 {
-            font-family: 'Cyber', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink);
-        }
-
-        .contact-info p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: var(--neon-blue);
-        }
-
-        .hologram {
-            flex: 1;
-            position: relative;
-            min-height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hologram-base {
-            width: 200px;
-            height: 20px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
-            border-radius: 50%;
-            position: absolute;
-            bottom: 0;
-            filter: blur(10px);
-            opacity: 0.8;
-        }
-
-        .hologram-beam {
-            width: 200px;
-            height: 300px;
-            background: linear-gradient(transparent, rgba(0, 255, 65, 0.1), transparent);
-            position: absolute;
-            bottom: 10px;
-            border-radius: 50% 50% 0 0;
-            animation: hologram-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes hologram-pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-        }
-
-        .hologram-content {
-            width: 180px;
-            height: 180px;
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid var(--matrix-green);
-            border-radius: 50%;
-            position: absolute;
-            bottom: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: hologram-float 6s ease-in-out infinite;
-        }
-
-        @keyframes hologram-float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(5deg); }
-            50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(-5deg); }
-        }
-
-        .hologram-content::before {
-            content: '';
-            position: absolute;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            border: 1px dashed var(--neon-blue);
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-
-        .hologram-avatar {
-            width: 80%;
-            height: 80%;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: sepia(100%) hue-rotate(100deg) contrast(120%);
-        }
-
-        .contact-form {
-            flex: 1;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--neon-blue);
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(26, 26, 46, 0.5);
-            border: 1px solid rgba(0, 255, 65, 0.3);
-            border-radius: 5px;
-            color: var(--cyber-light);
-            font-family: 'Courier New', monospace;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 10px rgba(255, 44, 237, 0.3);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer with Animated Circuit */
-        footer {
-            background: var(--cyber-gray);
-            padding: 3rem 5%;
-            text-align: center;
-            position: relative;
-            border-top: 1px solid rgba(0, 255, 65, 0.2);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Cyber', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 10px var(--neon-blue);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--cyber-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--neon-pink);
-            transition: width 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--neon-pink);
-            text-shadow: 0 0 5px var(--neon-pink);
-        }
-
-        .footer-links a:hover::after {
-            width: 100%;
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            color: var(--cyber-light);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .about-container {
-                flex-direction: column;
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .hologram {
-                order: -1;
-                margin-bottom: 3rem;
-            }
-
-            .timeline::before {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item::after {
-                left: 21px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-image {
-                width: 300px;
-                height: 300px;
-            }
-
-            .about-image {
-                min-width: 300px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1rem 5%;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-image {
-                width: 250px;
-                height: 250px;
-            }
-
-            .about-image {
-                min-width: 250px;
-            }
-
-            .contact-info h2 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabtain Ali — Software Engineer & Founder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Floating 3D Shapes Background -->
-    <div class="floating-shapes">
-        <div class="floating-shape" style="top: 20%; left: 10%; width: 100px; height: 100px; background: rgba(0, 255, 65, 0.05); border: 1px solid var(--matrix-green);"></div>
-        <div class="floating-shape" style="top: 70%; left: 80%; width: 80px; height: 80px; background: rgba(255, 44, 237, 0.05); border: 1px solid var(--neon-pink);"></div>
-        <div class="floating-shape" style="top: 40%; left: 70%; width: 60px; height: 60px; background: rgba(0, 240, 252, 0.05); border: 1px solid var(--neon-blue);"></div>
-        <div class="floating-shape" style="top: 60%; left: 20%; width: 120px; height: 120px; background: rgba(157, 0, 255, 0.05); border: 1px solid var(--neon-purple);"></div>
-    </div>
 
-    <!-- Cyber Circuit Background -->
-    <svg class="circuit" viewBox="0 0 1440 900" preserveAspectRatio="none">
-        <path d="M0,100 C150,200 350,0 500,100 C650,200 750,300 900,200 C1050,100 1200,300 1350,200 C1500,100 1600,0 1700,100" />
-        <path d="M0,300 C150,400 350,200 500,300 C650,400 750,500 900,400 C1050,300 1200,500 1350,400 C1500,300 1600,200 1700,300" />
-        <path d="M0,500 C150,600 350,400 500,500 C650,600 750,700 900,600 C1050,500 1200,700 1350,600 C1500,500 1600,400 1700,500" />
-        <path d="M0,700 C150,800 350,600 500,700 C650,800 750,900 900,800 C1050,700 1200,900 1350,800 C1500,700 1600,600 1700,700" />
+<div class="grain"></div>
+
+<header id="site-header">
+  <a href="#hero" class="brand">Sabtain <span>Ali</span></a>
+  <nav>
+    <ul>
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#skills">Capabilities</a></li>
+      <li><a href="#experience">Record</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="doc-tag">FILE — 00 / IDENTITY</p>
+    <h1>Sabtain Ali</h1>
+    <p class="hero-role">Software Engineer · Founder &amp; CEO, S.A Developers</p>
+    <p class="hero-desc">I build production software — web platforms, AI-integrated products, and e-commerce systems — and run the company that ships them. Currently a software engineering student in Islamabad, building in public while studying in class.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View the work</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</span>
+      <span><i class="fa-solid fa-graduation-cap"></i> BS Software Engineering, IIUI — 2027</span>
+    </div>
+  </div>
+
+  <div class="hero-seal" aria-hidden="true">
+    <svg viewBox="0 0 200 200" width="180" height="180">
+      <circle cx="100" cy="100" r="94" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="84" fill="none" stroke="var(--gold)" stroke-width="1"/>
+      <path id="sealCircle" d="M 100 16 A 84 84 0 1 1 99.9 16" fill="none"/>
+      <text font-family="'JetBrains Mono', monospace" font-size="9.2" letter-spacing="2.5" fill="var(--gold)">
+        <textPath href="#sealCircle" startOffset="2">FOUNDER &amp; CEO · S.A DEVELOPERS · EST. 2025 ·</textPath>
+      </text>
+      <text x="100" y="94" text-anchor="middle" font-family="'Fraunces', serif" font-size="17" fill="var(--gold)">S.A</text>
+      <text x="100" y="114" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" letter-spacing="2" fill="var(--gold)">DEVELOPERS</text>
     </svg>
-
-    <!-- Header -->
-    <header>
-        <a href="#hero" class="logo">
-            <img src="/images/logo.png" alt="Logo" class="logo-img">
-            SABTAIN<span>ALI</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>SOFTWARE<br><span>ENGINEER</span></h1>
-            <p>Crafting digital solutions with clean code and innovative thinking. Specializing in full-stack development, cloud architecture, and scalable system design.</p>
-            <a href="#projects" class="btn">Explore My Work</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/sabtainali153?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BbYPuQIdvQzOpJtiuHe9DcQ%3D%3D"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/hero.jpg" alt="Sabtain Ali">
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="binary-code" id="binaryCanvas"></div>
-        <div class="about-container">
-            <div class="about-image">
-                <img src="images/about.jpg" alt="About Sabtain">
-            </div>
-            <div class="about-content">
-                <h2> ABOUT_ME</h2>
-                <p>I'm a passionate software engineer with expertise in building robust, scalable applications. My approach combines technical precision with creative problem-solving to deliver exceptional digital experiences.</p>
-                <p>With 2 years of experience in the tech industry, I've developed a diverse skill set that allows me to tackle complex challenges across the full development stack while maintaining a focus on clean, maintainable code.</p>
-                <a href="#contact" class="btn">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2> TECHNICAL_SKILLS</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>FRONTEND</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>React</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>JavaScript</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>HTML/CSS</span>
-                        <span>98%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 98%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Typescript</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>BACKEND</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Node.js</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Python</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 88%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>PHP</span>
-                        <span>98%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 98%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>SQL</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>DEVOPS & CLOUD</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>AWS</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Docker</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 88%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>CI/CD</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 82%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Kubernetes</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 75%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2> WORK_EXPERIENCE</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2023 - Present</div>
-                    <h3 class="timeline-title">Web Developer</h3>
-                    <div class="timeline-desc">
-                        <p> Developed and maintained responsive websites using HTML, CSS, and JavaScript. Collaborated with designers to implement UI/UX improvements. Optimized web performance and ensured cross-browser compatibility.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024 - Present</div>
-                    <h3 class="timeline-title">web Designer</h3>
-                    <div class="timeline-desc">
-                        <p>Designed and developed responsive WordPress websites for diverse clients, transforming design mockups into functional, user-friendly sites. Specialized in customizing themes and plugins to meet specific client requirements while ensuring optimal performance and SEO best practices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <h2> EDUCATION</h2>
-        <div class="education-container">
-            <div class="education-card">
-                <h3 class="education-degree">Matriculation</h3>
-                <div class="education-institution">GMS System</div>
-                <div class="education-duration">2021</div>
-                <div class="education-desc">
-                    <p>Completed secondary education with a focus on core academic disciplines, laying the foundation for technical and professional growth.</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <h3 class="education-degree">Intermediate</h3>
-                <div class="education-institution">Aspire Group of Colleges</div>
-                <div class="education-duration">2021-2023</div>
-                <div class="education-desc">
-                    <p>Completed higher secondary education in [Science] with a focus on [Biology, Chemistry, Physics].</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <h3 class="education-degree">Bachelor of Science in Software Engineering</h3>
-                <div class="education-institution">International Islamic University Islamabad(IIUI) </div>
-                <div class="education-duration">2023 - 2027</div>
-                <div class="education-desc">
-                    <p>Specialized in full-stack development and software architecture. Coursework included advanced algorithms, distributed systems, and machine learning fundamentals.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2> PROJECTS</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/project 1.jpg" alt="E-Commerce Platform">
-                </div>
-                <div class="project-info">
-                    <h3>ECOMMERCE PRO</h3>
-                    <p>Full-featured e-commerce platform with product management, shopping cart, and payment processing built with MERN stack.</p>
-                    <div class="project-tech">
-                        <span class="tech-item">React</span>
-                        <span class="tech-item">Node.js</span>
-                        <span class="tech-item">MongoDB</span>
-                        <span class="tech-item">Stripe API</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/project 2.jpg" alt="SS ENGINEERS">
-                </div>
-                <div class="project-info">
-                    <h3>SS ENGINEERS</h3>
-                    <p>Developed a professional website for SS Engineers, a [construction] company, to showcase services, projects, and client testimonials. The platform features a responsive design, contact forms, and dynamic project galleries to enhance user engagement and lead generation.</p>
-                    <div class="project-tech">
-                        <span class="tech-item">HTML5</span>
-                        <span class="tech-item">CSS3</span>
-                        <span class="tech-item">Javascript</span>
-                        <span class="tech-item">React.js</span>
-                        <span class="tech-item">PHP</span>    
-                        <span class="tech-item">MySQL</span>
-                        <span class="tech-item">MongoDB</span>
-                    </div>
-                    <a href="https://ssengineers.com/" target="_blank" rel="noopener noreferrer" class="btn">View Live</a>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/project 3.jpg" alt="AI Chatbot">
-                </div>
-                <div class="project-info">
-                    <h3>Universal Calculator Pro</h3>
-                    <p>Universal Calculator Pro is a comprehensive multi-functional calculator application that combines essential mathematical operations with advanced computational features. This powerful tool handles everything from basic arithmetic to complex scientific calculations, financial computations, and unit conversions. Designed with an intuitive interface, it provides real-time results with precision accuracy for students, professionals, and everyday users.</p>
-                    <div class="project-tech">
-                        <span class="tech-item">JavaScript</span>
-                        <span class="tech-item">HTML5</span>
-                        <span class="tech-item">CSS3</span>
-                        <span class="tech-item">React.js</span>
-                        <span class="tech-item">Math.js</span>
-                    </div>
-                    <a href="https://universalcalculatorpro.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">View Live</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/project 4.jpg" alt="Invoice Flow Pro">
-                </div>
-                <div class="project-info">
-                    <h3>INVOICE FLOW PRO</h3>
-                    <p>Production-ready full-stack invoice management SaaS application with real authentication, real-time calculations, PDF generation, and complete business logic. Features include JWT authentication, auto-generated invoice numbers, real-time tax/discount calculations, multi-line item support, professional PDF generation via PDFKit, analytics dashboard, client management, invoice status tracking (paid/pending/overdue), payment terms management, and client email integration.</p>
-                    <div class="project-tech">
-                        <span class="tech-item">React 18</span>
-                        <span class="tech-item">Node.js</span>
-                        <span class="tech-item">Express</span>
-                        <span class="tech-item">MongoDB</span>
-                        <span class="tech-item">JWT</span>
-                        <span class="tech-item">Bcryptjs</span>
-                        <span class="tech-item">PDFKit</span>
-                        <span class="tech-item">React Query</span>
-                        <span class="tech-item">React Hook Form</span>
-                        <span class="tech-item">Yup</span>
-                        <span class="tech-item">Tailwind CSS</span>
-                        <span class="tech-item">Framer Motion</span>
-                        <span class="tech-item">Chart.js</span>
-                        <span class="tech-item">Nodemailer</span>
-                        <span class="tech-item">Docker</span>
-                        <span class="tech-item">Nginx</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <!-- Contact Section -->
-<section id="contact">
-    <div class="contact-container">
-        <div class="contact-info">
-            <h2> GET IN TOUCH</h2>
-            <p>Interested in collaborating or have questions about my work? Reach out through the form or directly via my networks.</p>
-            <div class="contact-details">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Islamabad, Pakistan</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>sabtainalipk144@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+92 319 4157700</span>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/sabtainali153?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BbYPuQIdvQzOpJtiuHe9DcQ%3D%3D"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="hologram">
-            <div class="hologram-beam"></div>
-            <div class="hologram-content">
-                <img src="images/avatar.jpg" alt="Hologram Avatar" class="hologram-avatar">
-            </div>
-            <div class="hologram-base"></div>
-        </div>
-        <div class="contact-form">
-            <form action="https://formspree.io/f/xkgzzngq" method="POST">
-                <div class="form-group">
-                    <label for="name">NAME</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">EMAIL</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">SUBJECT</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">MESSAGE</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn">SEND MESSAGE</button>
-            </form>
-        </div>
-    </div>
+  </div>
 </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">SABTAIN<span>ALI</span></div>
-            <div class="footer-links">
-                <a href="#hero">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <p class="copyright">© 2023 SABTAIN ALI | <strong>A Sabtain Ali Production</strong></p>
+<main>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <p class="doc-tag">FILE — 01 / PROFILE</p>
+    <div class="about-grid">
+      <h2 class="section-title">About</h2>
+      <div class="about-copy">
+        <p>I'm the Founder &amp; CEO of <strong>S.A Developers</strong>, a software company building modern web applications, AI-powered products, e-commerce platforms, and custom digital tools for clients — while completing my degree in Software Engineering at the International Islamic University Islamabad.</p>
+        <p>I sit across both sides of the table: writing the code myself and running the business around it — architecture, client delivery, and product strategy. That combination is what I bring to every project — technical depth paired with an owner's sense of accountability for the outcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt">
+    <p class="doc-tag">FILE — 02 / CAPABILITIES</p>
+    <h2 class="section-title">Technical Capabilities</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Languages</h3>
+        <div class="tag-row">
+          <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">PHP</span>
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">C#</span>
         </div>
-    </footer>
+      </div>
+      <div class="skill-block">
+        <h3>Frontend</h3>
+        <div class="tag-row">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React.js</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Backend</h3>
+        <div class="tag-row">
+          <span class="tag">Node.js</span><span class="tag">PHP</span><span class="tag">API Integration</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Databases</h3>
+        <div class="tag-row">
+          <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Tools &amp; Practices</h3>
+        <div class="tag-row">
+          <span class="tag">Git &amp; GitHub</span><span class="tag">DSA</span><span class="tag">SEO Optimization</span>
+          <span class="tag">Unity Engine</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Operating As a Founder</h3>
+        <div class="tag-row">
+          <span class="tag">Leadership</span><span class="tag">Product Building</span>
+          <span class="tag">Strategic Thinking</span><span class="tag">Problem Solving</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- JavaScript for Unique Effects -->
-    <script>
-        // Binary Code Rain Animation
-        function createBinaryRain() {
-            const container = document.querySelector('.binary-code');
-            const characters = '01';
-            const fontSize = 16;
-            const columns = Math.floor(window.innerWidth / fontSize);
-            
-            for (let i = 0; i < 100; i++) {
-                const digit = document.createElement('div');
-                digit.className = 'binary-digit';
-                digit.textContent = characters.charAt(Math.floor(Math.random() * characters.length));
-                digit.style.left = `${Math.random() * 100}%`;
-                digit.style.animationDuration = `${5 + Math.random() * 10}s`;
-                digit.style.animationDelay = `${Math.random() * 5}s`;
-                container.appendChild(digit);
-            }
-        }
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <p class="doc-tag">FILE — 03 / RECORD</p>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="ledger">
 
-        // Hologram Interaction
-        const hologram = document.querySelector('.hologram-content');
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            hologram.style.transform = `translate(${(x - 0.5) * 20}px, ${(y - 0.5) * 20}px)`;
-        });
+      <div class="ledger-row">
+        <div class="ledger-date">Jan 2025 — Present</div>
+        <div class="ledger-body">
+          <h3>Founder &amp; Chief Executive Officer <span>— S.A Developers, Islamabad</span></h3>
+          <ul>
+            <li>Founded and lead a software development company managing operations, product development, and client delivery end-to-end.</li>
+            <li>Drive technical decision-making, architecture design, and coding standards across the full development lifecycle.</li>
+            <li>Built and maintained client websites and web applications across multiple platforms.</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React.js</span>
+            <span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">PHP</span>
+          </div>
+        </div>
+      </div>
 
-        // Circuit Animation on Scroll
-        const circuitPaths = document.querySelectorAll('.circuit path');
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-            circuitPaths.forEach((path, index) => {
-                path.style.strokeDashoffset = 1000 - (scrollPercentage * 1000 * (index + 1));
-            });
-        });
+      <div class="ledger-row">
+        <div class="ledger-date">Sep 2023 — Dec 2024</div>
+        <div class="ledger-body">
+          <h3>Full Stack Web Developer &amp; Web Designer <span>— SS Engineers, Islamabad</span></h3>
+          <ul>
+            <li>Designed and developed the company's official website from scratch using a full stack architecture, later redesigning it with modern UI/UX principles that significantly improved visual quality and user experience.</li>
+            <li>Maintained software documentation, tracked bug patches, and managed feature requests to boost team productivity.</li>
+          </ul>
+          <div class="tag-row small">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+      </div>
 
-        // Initialize effects
-        window.addEventListener('load', () => {
-            createBinaryRain();
-            
-            // Animate hero elements sequentially
-            const heroElements = document.querySelectorAll('.hero-content > *');
-            heroElements.forEach((el, i) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 300 * i);
-            });
-        });
+    </div>
+  </section>
 
-        // Form submission handling
-const contactForm = document.querySelector('#contact form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.textContent;
-        
-        // Show loading state
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: new FormData(contactForm),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (response.ok) {
-                // Success message with cyberpunk style
-                const successMsg = document.createElement('div');
-                successMsg.style.position = 'fixed';
-                successMsg.style.top = '20px';
-                successMsg.style.right = '20px';
-                successMsg.style.padding = '15px 25px';
-                successMsg.style.background = 'rgba(10, 10, 18, 0.9)';
-                successMsg.style.border = '1px solid var(--neon-blue)';
-                successMsg.style.color = 'var(--neon-blue)';
-                successMsg.style.borderRadius = '5px';
-                successMsg.style.boxShadow = '0 0 15px var(--neon-blue)';
-                successMsg.style.zIndex = '10000';
-                successMsg.textContent = 'Message sent successfully!';
-                document.body.appendChild(successMsg);
-                
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    document.body.removeChild(successMsg);
-                }, 3000);
-                
-                // Reset form
-                contactForm.reset();
-            } else {
-                throw new Error('Network response was not ok');
-            }
-        } catch (error) {
-            // Error message
-            alert('There was a problem sending your message. Please try again later.');
-        } finally {
-            // Reset button
-            submitBtn.textContent = originalBtnText;
-            submitBtn.disabled = false;
-        }
-    });
-}
+  <!-- EDUCATION -->
+  <section id="education" class="section alt">
+    <p class="doc-tag">FILE — 04 / EDUCATION</p>
+    <h2 class="section-title">Education</h2>
+    <div class="education-grid">
+      <div class="edu-card featured">
+        <div class="edu-duration">2023 — 2027 (Expected)</div>
+        <h3>BS Software Engineering</h3>
+        <div class="edu-inst">International Islamic University Islamabad (IIUI) — 3rd Year</div>
+        <p>Relevant coursework: Data Structures &amp; Algorithms, Database Systems, Web Engineering, Object-Oriented Programming, Software Design Principles.</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-duration">2021 — 2023</div>
+        <h3>Intermediate</h3>
+        <div class="edu-inst">Aspire Group of Colleges</div>
+        <p>Higher secondary education in Pre-Engineering, with a foundation in Physics, Chemistry, and Mathematics.</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-duration">2021</div>
+        <h3>Matriculation</h3>
+        <div class="edu-inst">GMS System</div>
+        <p>Completed secondary education, laying the foundation for technical and professional growth.</p>
+      </div>
+    </div>
+  </section>
 
-        // Cyberpunk glitch effect randomly
-        setInterval(() => {
-            const glitchElements = document.querySelectorAll('.hero-content h1, .section-title');
-            glitchElements.forEach(el => {
-                if (Math.random() > 0.7) {
-                    el.style.animation = 'glitch 0.3s linear';
-                    setTimeout(() => {
-                        el.style.animation = '';
-                    }, 300);
-                }
-            });
-        }, 3000);
-    </script>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <p class="doc-tag">FILE — 05 / WORK</p>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <div class="project-year">2026</div>
+        <h3>Social AI</h3>
+        <p>A full-stack social media platform with deep AI integration — AI-powered content suggestions, smart feed curation, and automated moderation built on top of a scalable social graph.</p>
+        <div class="tag-row small"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">REST APIs</span><span class="tag">AI/LLM Integration</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2026</div>
+        <h3>IIUI Journal</h3>
+        <p>University platform for Q&amp;A, blogs, announcements, and past-paper sharing. Reached 1,500 sign-ups and 1,300 active users within 48 hours of launch — taken offline by university administration due to the pace of its growth.</p>
+        <div class="tag-row small"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">JWT Auth</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2025</div>
+        <h3>Invoice Flow Pro</h3>
+        <p>Production-ready invoice management SaaS with real authentication, real-time tax/discount calculations, multi-line items, PDF generation, an analytics dashboard, and full invoice status tracking.</p>
+        <div class="tag-row small"><span class="tag">React 18</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">PDFKit</span><span class="tag">Docker</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2025</div>
+        <h3>Universal Calculator Pro</h3>
+        <p>Multi-functional calculator combining basic arithmetic with scientific, financial, and unit-conversion tools — real-time, precise results in an intuitive interface.</p>
+        <div class="tag-row small"><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">Math.js</span></div>
+        <a href="https://universalcalculatorpro.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2025</div>
+        <h3>FaceMatch</h3>
+        <p>An ELO-rated image comparison platform — side-by-side voting, real-time ranking, a clean leaderboard, match history, and secure admin-only image uploads.</p>
+        <div class="tag-row small"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">MySQL</span><span class="tag">ELO Algorithm</span></div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2024</div>
+        <h3>SS Engineers — Corporate Website</h3>
+        <p>Full stack corporate website for a construction firm client, showcasing services and projects with a responsive design, contact forms, and dynamic galleries built for lead generation.</p>
+        <div class="tag-row small"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React.js</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+        <a href="https://ssengineers.com/" target="_blank" rel="noopener noreferrer" class="project-link">View live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </article>
+
+      <article class="project-card">
+        <div class="project-year">2023</div>
+        <h3>Flappy Bird Clone</h3>
+        <p>Built first in Python with Pygame to learn game logic and collision detection, then rebuilt in Unity with C# for smoother visuals and gameplay.</p>
+        <div class="tag-row small"><span class="tag">Python</span><span class="tag">Pygame</span><span class="tag">C#</span><span class="tag">Unity Engine</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <p class="doc-tag">FILE — 06 / CONTACT</p>
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <h2 class="section-title">Get in Touch</h2>
+        <p>Have a project in mind, or a question about my work? Reach out directly or use the form.</p>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:sabtainalipk144@gmail.com">sabtainalipk144@gmail.com</a></li>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+923194157700">+92 319 4157700</a></li>
+          <li><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/sabtainali153" target="_blank" rel="noopener noreferrer">linkedin.com/in/sabtainali153</a></li>
+        </ul>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/xkgzzngq" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">Sabtain <span>Ali</span></div>
+  <ul class="footer-links">
+    <li><a href="#about">Profile</a></li>
+    <li><a href="#skills">Capabilities</a></li>
+    <li><a href="#experience">Record</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="copyright">© <span id="year"></span> Sabtain Ali — Founder &amp; CEO, S.A Developers</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
