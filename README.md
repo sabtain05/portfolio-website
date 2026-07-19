@@ -32,19 +32,7 @@ Website: https://sabtainali.netlify.app/
 
 ---
 
-📂 Project Structure
-
-portfolio-website/
-├── assets/
-├── css/
-├── js/
-├── images/
-├── index.html
-└── README.md
-
----
-
-⚙️ Getting Started
+ Getting Started
 
 Clone the repository
 
