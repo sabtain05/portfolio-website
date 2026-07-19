@@ -61,19 +61,7 @@ The portfolio includes:
 
 ---
 
- Preview
-
-«Add screenshots of your portfolio here.»
-
-Example:
-
-assets/screenshots/home.png
-assets/screenshots/projects.png
-assets/screenshots/contact.png
-
----
-
-📈 Future Improvements
+ Future Improvements
 
 - Blog section
 - Dark/Light mode
