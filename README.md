@@ -13,7 +13,7 @@ Website: https://sabtainali.netlify.app/
 -  Clean and modern UI
 -  Fully responsive design
 -  About Me section
-- 🛠️ Skills showcase
+-  Skills showcase
 - 💼 Featured projects
 - 📄 Resume download
 - 📬 Contact section
