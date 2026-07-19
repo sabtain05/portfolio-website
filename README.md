@@ -85,7 +85,7 @@ If you'd like to improve this project:
 
 ---
 
-📬 Contact
+ Contact
 
 Sabtain Ali
 
