@@ -61,7 +61,7 @@ The portfolio includes:
 
 ---
 
-📸 Preview
+ Preview
 
 «Add screenshots of your portfolio here.»
 
