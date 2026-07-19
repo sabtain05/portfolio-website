@@ -22,7 +22,7 @@ Website: https://sabtainali.netlify.app/
 
 ---
 
-🛠️ Tech Stack
+ Tech Stack
 
 - HTML5
 - CSS3
