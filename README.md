@@ -72,7 +72,7 @@ The portfolio includes:
 
 ---
 
-🤝 Contributing
+ Contributing
 
 Contributions, suggestions, and feedback are always welcome.
 
