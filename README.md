@@ -2,7 +2,7 @@
 
 A modern and responsive personal portfolio website showcasing my projects, technical skills, experience, and journey as a Software Engineer. This portfolio serves as a central hub where visitors can explore my work, learn about my background, and get in touch for collaboration or opportunities.
 
-🚀 Live Demo
+ Live Demo
 
 Website: https://sabtainali.netlify.app/
 
