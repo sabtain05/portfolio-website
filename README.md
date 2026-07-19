@@ -15,7 +15,7 @@ Website: https://sabtainali.netlify.app/
 -  About Me section
 -  Skills showcase
 -  Featured projects
-- 📄 Resume download
+-  Resume download
 - 📬 Contact section
 - ⚡ Fast loading and optimized performance
 - 🌐 Social media links
