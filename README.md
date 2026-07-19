@@ -48,7 +48,7 @@ Simply open "index.html" in your browser, or use the VS Code Live Server extensi
 
 ---
 
-💼 Portfolio Highlights
+ Portfolio Highlights
 
 The portfolio includes:
 
