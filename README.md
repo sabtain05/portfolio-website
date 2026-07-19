@@ -8,7 +8,7 @@ Website: https://sabtainali.netlify.app/
 
 ---
 
-✨ Features
+ Features
 
 - 🎨 Clean and modern UI
 - 📱 Fully responsive design
