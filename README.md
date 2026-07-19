@@ -11,7 +11,7 @@ Website: https://sabtainali.netlify.app/
  Features
 
 -  Clean and modern UI
-- 📱 Fully responsive design
+-  Fully responsive design
 - 👨‍💻 About Me section
 - 🛠️ Skills showcase
 - 💼 Featured projects
