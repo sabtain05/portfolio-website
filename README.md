@@ -4,7 +4,7 @@ A modern and responsive personal portfolio website showcasing my projects, techn
 
  Live Demo
 
-Website: https://sabtainali.netlify.app/
+Website: https://sabtainali.vercel.app/
 
 ---
 
