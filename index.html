@@ -1,348 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sabtain Ali — Software Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabtain Ali</title>
+    
+    <!-- Favicon: A minimalist >_ terminal icon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>>_</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="prompt">$</span><a href="#">sabtainali.dev</a><span class="cursor">_</span>
+            </div>
+            <nav>
+                <a href="#" class="active">home</a>
+                <a href="#">writing</a>
+                <a href="#">github</a>
+            </nav>
+        </header>
 
-<div class="grain"></div>
+        <main>
+            <section class="hero">
+                <p>
+                    Software developer based in Pakistan. Open-source contributor and creator of 
+                    <strong>ApexRPE</strong>, <strong>safe-await-tuple</strong>, and various backend utilities. 
+                    Passionate about mobile apps, developer productivity, and parser construction.
+                </p>
+                <a href="mailto:hello@example.com" class="contact-link">hello@sabtainali.dev</a>
+            </section>
 
-<header id="site-header">
-  <a href="#hero" class="brand">Sabtain <span>Ali</span></a>
-  <nav>
-    <ul>
-      <li><a href="#about">Profile</a></li>
-      <li><a href="#skills">Capabilities</a></li>
-      <li><a href="#experience">Record</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
-</header>
+            <section class="projects">
+                <h2>Selected Projects</h2>
+                <ul class="project-list">
+                    <li>
+                        <div class="project-header">
+                            <h3><a href="#">ApexRPE</a></h3>
+                            <span class="year">2026</span>
+                        </div>
+                        <p>A Flutter-based mobile fitness application featuring offline tracking for weights, reps, RPE, and Reps in Reserve for powerlifters.</p>
+                    </li>
+                    <li>
+                        <div class="project-header">
+                            <h3><a href="#">Engo</a></h3>
+                            <span class="year">2026</span>
+                        </div>
+                        <p>An interpreter built in Go. Features custom AST nodes, panic mode recovery, and environment memory handling.</p>
+                    </li>
+                    <li>
+                        <div class="project-header">
+                            <h3><a href="#">safe-await-tuple</a></h3>
+                            <span class="year">2026</span>
+                        </div>
+                        <p>An open-source Node.js library published on npm for clean, asynchronous error handling without try/catch hell.</p>
+                    </li>
+                    <li>
+                        <div class="project-header">
+                            <h3><a href="#">Quicklyzer</a></h3>
+                            <span class="year">2026</span>
+                        </div>
+                        <p>A project dashboard tool designed to enhance developer productivity and project analysis.</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <p class="doc-tag">IDENTITY</p>
-    <h1>Sabtain Ali</h1>
-    <p class="hero-role">Software Engineer. Open-source maintainer</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">View the work</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <footer>
+            <p>&copy; 2026 Sabtain Ali. All rights reserved.</p>
+        </footer>
     </div>
-    <div class="hero-meta">
-      <span><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</span>
-    </div>
-  </div>
 
-  <div class="hero-portrait">
-    <div class="portrait-frame">
-      <img src="images/hero.jpg" alt="Sabtain Ali">
-    </div>
-  </div>
-</section>
-
-<main>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <p class="doc-tag">PROFILE</p>
-    <h2 class="section-title">About</h2>
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="images/about.jpg" alt="Sabtain Ali at work">
-      </div>
-      <div class="about-copy">
-        <p>I'm a Software Engineer and open-source maintainer behind <a href="https://quicklyzer.vercel.app/" target="_blank" rel="noopener noreferrer"><u>quicklyzer</u></a> passionate about building fast, scalable, and user-friendly software. I enjoy solving real-world problems through clean code, thoughtful design, and modern technologies. As the creator and maintainer of Quicklyzer, I focus on developing tools that help developers work more efficiently while contributing to the open-source community. I'm always exploring new technologies, building innovative products, and continuously improving my craft.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section alt">
-    <p class="doc-tag">CAPABILITIES</p>
-    <h2 class="section-title">Technical Capabilities</h2>
-    <div class="skills-grid">
-      <div class="skill-block">
-        <h3>Languages</h3>
-        <div class="tag-row">
-          <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">PHP</span>
-          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">C#</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h3>Frontend</h3>
-        <div class="tag-row">
-          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React.js</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h3>Backend</h3>
-        <div class="tag-row">
-          <span class="tag">Node.js</span><span class="tag">PHP</span><span class="tag">API Integration</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h3>Databases</h3>
-        <div class="tag-row">
-          <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h3>Tools &amp; Practices</h3>
-        <div class="tag-row">
-          <span class="tag">Git &amp; GitHub</span><span class="tag">DSA</span><span class="tag">SEO Optimization</span>
-          <span class="tag">Unity Engine</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h3>Soft Skills</h3>
-        <div class="tag-row">
-          <span class="tag">Leadership</span><span class="tag">Product Building</span>
-          <span class="tag">Strategic Thinking</span><span class="tag">Problem Solving</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <p class="doc-tag">RECORD</p>
-    <h2 class="section-title">Work Experience</h2>
-    <div class="ledger">
-
-      <div class="ledger-row">
-        <div class="ledger-date">Feb 2026 — June 2026</div>
-        <div class="ledger-body">
-          <h3>Co-founder &amp; CEO<span>— Social Ai</span><span>— On-site</span></h3>
-          <ul>
-            <li>Founded Social AI, an AI-powered social media startup focused on integrating generative AI into the social networking experience.</li>
-            <li>Designed the product vision, user experience, and core AI-driven features for content creation and user engagement.</li>
-            <li>Built the MVP using modern web technologies, handling frontend, backend, database, and AI integration independently.</li>
-            <li>Led product planning, technical architecture, feature prioritization, and deployment.</li>
-            <li>Validated the concept through early development and experimentation before concluding the project in June 2026.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="ledger-date">Sep 2024 — Jul 2025</div>
-        <div class="ledger-body">
-          <h3>Full Stack Engineer <span>— Freelance at Fiverr</span><span>— Remote</span></h3>
-          <ul>
-            <li>Started as a Full Stack Engineer on Fiverr.com, taking on dozens of projects, including:</li>
-            <li>Search engine optimization and digital marketing for business clients.</li>
-            <li>End-to-end development of clinic Website with the integration of Ai.</li>
-            <li>Website for a Real Estate with a complete booking and management solution.</li>
-            <li>E-commerce website for Mobile Phone Accessories with payments and delivery service integration.</li>
-            <li>Built the technical and client-management foundation that later led to founding S.A Developers.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="ledger-date">Feb 2024 — Dec 2024</div>
-        <div class="ledger-body">
-          <h3>MERN Stack Web Developer &amp; Web Designer <span>— SS Engineers, Islamabad</span><span>— On-site</span></h3>
-          <ul>
-            <li>Designed and developed the company's official website from scratch using a full stack architecture, later redesigning it with modern UI/UX principles that significantly improved visual quality and user experience.</li>
-            <li>Maintained software documentation, tracked bug patches, and managed feature requests to boost team productivity.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="ledger-date">Sep 2023 — Jan 2024</div>
-        <div class="ledger-body">
-          <h3>Game Developer <span>— SS Engineers, Islamabad</span><span>— On-site</span></h3>
-          <ul>
-            <li>Developed my first game, Flappy Bird, utilizing Python and Pygame to grasp game logic and collision detection.</li>
-            <li>Rebuilt the game in Unity with C# to enhance visuals and gameplay experience.</li>
-            <li>Collaborated with a small team at SS Engineers, a startup focused on innovative game development in Islāmābād, Pakistan.</li>
-            <li>Gained valuable skills in game design, programming, and problem-solving.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" class="section alt">
-    <p class="doc-tag">EDUCATION</p>
-    <h2 class="section-title">Education</h2>
-    <div class="education-grid">
-      <div class="edu-card featured">
-        <div class="edu-duration">2023 — 2027 (Expected)</div>
-        <h3>BS Software Engineering</h3>
-        <div class="edu-inst">International Islamic University Islamabad (IIUI) — 3rd Year</div>
-        <p>Relevant coursework: Data Structures &amp; Algorithms, Database Systems, Web Engineering, Object-Oriented Programming, Software Design Principles.</p>
-      </div>
-      <div class="edu-card">
-        <div class="edu-duration">2021 — 2023</div>
-        <h3>Intermediate</h3>
-        <div class="edu-inst">Aspire Group of Colleges</div>
-        <p>Higher secondary education in Pre-Medical, with a foundation in Physics, Chemistry, and Biology.</p>
-      </div>
-      <div class="edu-card">
-        <div class="edu-duration">2021</div>
-        <h3>Matriculation</h3>
-        <div class="edu-inst">GMS System</div>
-        <p>Completed secondary education, laying the foundation for technical and professional growth.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <p class="doc-tag">WORK</p>
-    <h2 class="section-title">Selected Projects</h2>
-    <div class="projects-grid">
-
-
-      <article class="project-card">
-        <div class="project-image"><img src="images/project 9.jpg" alt="Quicklyzer"></div>
-        <div class="project-year">2026</div>
-        <h3>Quicklyzer</h3>
-        <p>An open-source node.js package — A fast & Intelligent CLI that understands and analyzes software projects in seconds. Published as an node.js package and actively maintained.</p>
-        <div class="tag-row small"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Commander.js</span><span class="tag">Chalk</span><span class="tag">Ora</span><span class="tag">Git</span><span class="tag">npm</span></div>
-        <a href="https://quicklyzer.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        <a href="https://github.com/sabtain05/quicklyzer" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        <a href="https://www.npmjs.com/package/quicklyzer" target="_blank" rel="noopener noreferrer" class="project-link">npm <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="images/project 6.jpg" alt="Social AI"></div>
-        <div class="project-year">2026</div>
-        <h3>Social AI</h3>
-        <p>A full-stack social media platform with deep AI integration — AI-powered content suggestions, smart feed curation, and automated moderation built on top of a scalable social graph.</p>
-        <div class="tag-row small"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">REST APIs</span><span class="tag">AI/LLM Integration</span></div>
-        <a href="https://github.com/sabtain05/Social-Ai" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="images/project 7.jpg" alt="IIUI Journal"></div>
-        <div class="project-year">2026</div>
-        <h3>IIUI Journal</h3>
-        <p>University platform for Q&amp;A, blogs, announcements, and past-paper sharing. Reached 1,500 sign-ups and 1,300 active users within 48 hours of launch — taken offline by university administration due to the pace of its growth.</p>
-        <div class="tag-row small"><span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">JWT Auth</span></div>
-        <a href="https://github.com/sabtain05/iiui_journal" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="/images/project 4.jpg" alt="Invoice Flow Pro"></div>
-        <div class="project-year">2025</div>
-        <h3>Invoice Flow Pro</h3>
-        <p>Production-ready invoice management SaaS with real authentication, real-time tax/discount calculations, multi-line items, PDF generation, an analytics dashboard, and full invoice status tracking.</p>
-        <div class="tag-row small"><span class="tag">React 18</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">PDFKit</span><span class="tag">Docker</span></div>
-        <a href="https://github.com/sabtain05/invoice-flow-pro" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="/images/project 3.jpg" alt="Universal Calculator Pro"></div>
-        <div class="project-year">2025</div>
-        <h3>Universal Calculator Pro</h3>
-        <p>Multi-functional calculator combining basic arithmetic with scientific, financial, and unit-conversion tools — real-time, precise results in an intuitive interface.</p>
-        <div class="tag-row small"><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">Math.js</span></div>
-        <a href="https://github.com/sabtain05/universal-calculator-pro" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="/images/project 5.jpg" alt="FaceMatch"></div>
-        <div class="project-year">2025</div>
-        <h3>FaceMatch</h3>
-        <p>An ELO-rated image comparison platform — side-by-side voting, real-time ranking, a clean leaderboard, match history, and secure admin-only image uploads.</p>
-        <div class="tag-row small"><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">MySQL</span><span class="tag">ELO Algorithm</span></div>
-        <a href="https://github.com/sabtain05/Face-Match" target="_blank" rel="noopener noreferrer" class="project-link">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="/images/project 2.jpg" alt="SS Engineers"></div>
-        <div class="project-year">2024</div>
-        <h3>SS Engineers — Corporate Website</h3>
-        <p>Full stack corporate website for a construction firm client, showcasing services and projects with a responsive design, contact forms, and dynamic galleries built for lead generation.</p>
-        <div class="tag-row small"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React.js</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-image"><img src="images/project 8.jpg" alt="Flappy Bird Clone"></div>
-        <div class="project-year">2023</div>
-        <h3>Flappy Bird Clone</h3>
-        <p>Built first in Python with Pygame to learn game logic and collision detection, then rebuilt in Unity with C# for smoother visuals and gameplay.</p>
-        <div class="tag-row small"><span class="tag">Python</span><span class="tag">Pygame</span><span class="tag">C#</span><span class="tag">Unity Engine</span></div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section alt">
-    <p class="doc-tag">CONTACT</p>
-    <div class="contact-grid">
-      <div class="contact-copy">
-        <div class="contact-avatar">
-          <img src="images/avatar.jpg" alt="Sabtain Ali">
-        </div>
-        <h2 class="section-title">Get in Touch</h2>
-        <p>Have a project in mind, or a question about my work? Reach out directly or use the form.</p>
-        <ul class="contact-list">
-          <li><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</li>
-          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:sabtainalipk144@gmail.com">sabtainalipk144@gmail.com</a></li>
-          <li><i class="fa-solid fa-phone"></i> <a href="tel:+923194157700">+92 319 4157700</a></li>
-          <li><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/sabtainali153" target="_blank" rel="noopener noreferrer">Sabtain Ali</a></li>
-          <li><i class="fa-brands fa-github"></i> <a href="https://github.com/sabtain05" target="_blank" rel="noopener noreferrer">Sabtain Ali</a></li>
-        </ul>
-      </div>
-      <form class="contact-form" action="https://formspree.io/f/xkgzzngq" method="POST">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send message</button>
-        <p class="form-status" id="formStatus" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-brand">Sabtain <span>Ali</span></div>
-  <ul class="footer-links">
-    <li><a href="#about">Profile</a></li>
-    <li><a href="#skills">Capabilities</a></li>
-    <li><a href="#experience">Record</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-   <p class="copyright">© <span id="year"></span> Sabtain Ali</p>
-   <p class="footer-note">a Sabtain Ali production.</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
