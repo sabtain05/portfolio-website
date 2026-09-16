@@ -8,7 +8,7 @@
     --bg-color: #ffffff;
     --text-main: #111111;
     --text-dim: #6b7280;
-    --border-color: #e5e7eb;
+    --border-color: #000000;
     --selection-bg: #d1d5db;
 }
 
@@ -16,7 +16,7 @@
     --bg-color: #111111;
     --text-main: #ededed;
     --text-dim: #a1a1aa;
-    --border-color: #333333;
+    --border-color: #ffffff;
     --selection-bg: #3f3f46;
 }
 
