@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pitching and Scaling — Sabtain Ali</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='60' font-style='italic' fill='white'>S</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) { theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <div class="layout-container">
+        <header class="site-header">
+            <div class="header-content">
+                <a class="site-title" href="https://sabtainali.me">Sabtain Ali</a>
+                <nav class="site-nav">
+                    <a class="nav-link text-main" aria-current="page" href="blog.html">Essays</a>
+                    <a class="nav-link text-dim" href="index.html">About</a>
+                    <a class="nav-link text-dim" href="https://github.com/sabtain05" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    <a class="nav-link text-dim" href="https://x.com/sabtain05" target="_blank" rel="noopener noreferrer">X ↗</a>
+                    <button type="button" id="theme-toggle" aria-label="Switch theme" class="theme-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="moon-icon" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+<main class="main-content">
+    <article>
+        <header class="article-header">
+            <time class="article-date">May 23, 2024</time>
+            <h1 class="article-title">Escaping Try/Catch Hell in Node.js</h1>
+        </header>
+        <div class="article-content">
+            <p>Node.js revolutionized backend development, but the evolution of asynchronous JavaScript brought along some nasty anti-patterns. We moved from callback hell straight into try/catch hell.</p>
+            <p>When you have a controller method that needs to make three different database queries and two external API calls, wrapping every single `await` in its own `try/catch` block makes the code unreadable. The alternative—wrapping the entire block in one giant `try/catch`—often obscures exactly which promise failed.</p>
+            <p>This frustration led me to create and publish `safe-await-tuple` on npm. By utilizing a Go-inspired error handling pattern (returning an array with the error as the first element and the data as the second), you can keep your asynchronous code completely flat and immensely readable. It is a small utility, but it fundamentally cleans up backend logic.</p>
+        </div>
+        <a href="blog.html" class="back-link text-main">← Back to essays</a>
+    </article>
+</main>
+
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a class="nav-link text-main" href="mailto:sabtainalipk144@gmail.com">sabtainalipk144@gmail.com</a>
+                <a class="nav-link text-main" href="https://github.com/sabtain05" target="_blank" rel="noopener noreferrer">github.com/sabtain05 ↗</a>
+                <a class="nav-link text-main" href="https://x.com/sabtain05" target="_blank" rel="noopener noreferrer">x.com/sabtain05 ↗</a>
+                <a class="nav-link text-main" href="rss.xml" title="RSS Feed">RSS</a>
+            </div>
+            <p class="copyright">Published from Islamabad, Pakistan. © 2026 Sabtain Ali.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

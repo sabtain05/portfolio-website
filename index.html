@@ -1,84 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sabtain Ali</title>
+    <meta name="description" content="Essays on software, open source, and the society around them — by Sabtain Ali." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-family='serif' font-size='60' font-style='italic' fill='white'>S</text></svg>" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     
-    <!-- Favicon: A minimalist >_ terminal icon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>>_</text></svg>">
-    
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <span class="prompt">$</span><a href="#">sabtainali.dev</a><span class="cursor">_</span>
+    <div class="layout-container">
+        <header class="site-header">
+            <div class="header-content">
+                <a class="site-title" href="https://sabtainali.me">Sabtain Ali</a>
+                <nav class="site-nav">
+                    <a class="nav-link text-dim" href="blog.html">Essays</a>
+                    <a class="nav-link text-main" aria-current="page" href="index.html">About</a>
+                    <a class="nav-link text-dim" href="https://github.com/sabtain05" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    <a class="nav-link text-dim" href="https://x.com/sabtain05" target="_blank" rel="noopener noreferrer">X ↗</a>
+                    <a class="nav-link text-dim" href="rss.xml">RSS</a>
+                    <button type="button" id="theme-toggle" aria-label="Switch theme" class="theme-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="moon-icon" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+                        </svg>
+                    </button>
+                </nav>
             </div>
-            <nav>
-                <a href="#" class="active">home</a>
-                <a href="#">writing</a>
-                <a href="#">github</a>
-            </nav>
         </header>
 
-<main>
+        <main class="main-content">
+            <div class="content-wrapper">
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <p class="doc-tag">PROFILE</p>
-    <h2 class="section-title">About</h2>
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="images/about.jpg" alt="Sabtain Ali at work">
-      </div>
-      <div class="about-copy">
-        <p>I'm a Software Engineer and open-source maintainer behind <a href="https://quicklyzer.vercel.app/" target="_blank" rel="noopener noreferrer"><u>quicklyzer</u></a> passionate about building fast, scalable, and user-friendly software. I enjoy solving real-world problems through clean code, thoughtful design, and modern technologies. As the creator and maintainer of Quicklyzer, I focus on developing tools that help developers work more efficiently while contributing to the open-source community. I'm always exploring new technologies, building innovative products, and continuously improving my craft.</p>
-      </div>
-    </div>
-  </section>
+                <section aria-label="About">
+                    <p class="bio-text">
+                        Software Engineer based in Islamabad, Pakistan. Open-source contributor behind 
+                        <a style="text-decoration: underline;" href="https://safe-await-tuple.vercel.app">safe-await-tuple</a> and
+                        <a style="text-decoration: underline;" href="https://quicklyzer.vercel.app">quicklyzer</a> — work that has crossed <strong>3000+ downloads</strong> on npm.
+                    </p>
+                    <div class="contact-links">
+                        <a class="nav-link text-main" href="mailto:sabtainalipk144@gmail.com">sabtainalipk144@gmail.com</a>
+                        <a class="nav-link text-main" href="https://github.com/sabtain05" target="_blank" rel="noopener noreferrer">github.com/sabtain05 ↗</a>
+                        <a class="nav-link text-main" href="https://x.com/sabtain05" target="_blank" rel="noopener noreferrer">x.com/sabtain05 ↗</a>
+                    </div>
+                </section>
 
-            <section class="projects">
-                <h2>Selected Projects</h2>
-                <ul class="project-list">
-                    <li>
-                        <div class="project-header">
-                            <h3><a href="#">ApexRPE</a></h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>A Flutter-based mobile fitness application featuring offline tracking for weights, reps, RPE, and Reps in Reserve for powerlifters.</p>
-                    </li>
-                    <li>
-                        <div class="project-header">
-                            <h3><a href="#">Engo</a></h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>An interpreter built in Go. Features custom AST nodes, panic mode recovery, and environment memory handling.</p>
-                    </li>
-                    <li>
-                        <div class="project-header">
-                            <h3><a href="#">safe-await-tuple</a></h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>An open-source Node.js library published on npm for clean, asynchronous error handling without try/catch hell.</p>
-                    </li>
-                    <li>
-                        <div class="project-header">
-                            <h3><a href="#">Quicklyzer</a></h3>
-                            <span class="year">2026</span>
-                        </div>
-                        <p>A project dashboard tool designed to enhance developer productivity and project analysis.</p>
-                    </li>
-                </ul>
-            </section>
+                <section aria-labelledby="work-heading">
+                    <div class="section-header">
+                        <h2 id="work-heading" class="section-label">Selected work</h2>
+                    </div>
+                    <ul class="project-list">
+                      <li>
+                            <a href="https://quicklyzer.vercel.app" class="project-item group">
+                                <span class="project-name group-hover">Quicklyzer</span>
+                                <span class="project-desc">Project dashboard tool for enhanced developer productivity</span>
+                                <span class="leader hidden-mobile" aria-hidden="true"></span>
+                                <span class="project-meta">3000+ downloads</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://safe-await-tuple.vercel.app" class="project-item group">
+                                <span class="project-name group-hover">safe-await-tuple</span>
+                                <span class="project-desc">Clean, asynchronous error handling library for Node.js</span>
+                                <span class="leader hidden-mobile" aria-hidden="true"></span>
+                                <span class="project-meta">Node.js Library</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="https://github.com/sabtain05/iiui_journal" class="project-item group">
+                            <span class="project-name group-hover">IIUI Journal</span>
+                            <span class="project-desc">Past-papers & blogging platform for students</span>
+                            <span class="leader hidden-mobile" aria-hidden="true"></span>
+                            <span class="project-meta">1500+ signups in 48 hours</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://github.com/sabtain05/Social-Ai" class="project-item group">
+                            <span class="project-name group-hover">Social Ai</span>
+                            <span class="project-desc">Social media platform with the integration of AI</span>
+                            <span class="leader hidden-mobile" aria-hidden="true"></span>
+                            <span class="project-meta">Social media</span>
+                          </a>
+                        </li>
+                      </ul>
+                    <div class="more-link-container">
+                        <a href="https://github.com/sabtain05" class="nav-link text-main">EVERYTHING ELSE ON GITHUB ↗</a>
+                    </div>
+                </section>
+
+                <!-- Latest Essay Section -->
+                <section aria-labelledby="latest-heading">
+                    <p class="section-label">Latest essay — September 2026</p>
+                    <h2 id="latest-heading" class="latest-title">
+                        <a href="#">Pitching and Scaling: From Y Combinator to Global Markets</a>
+                    </h2>
+                    <div class="latest-grid">
+                        <p class="dropcap-text">
+                            <span class="dropcap">T</span>he transition from writing code in a terminal to pitching a business on a global stage forces a complete mental shift. Over the past few months, my focus has pivoted heavily toward scaling infrastructure and exploring international accelerator programs.
+                        </p>
+                        <aside class="latest-aside">
+                            A story about pitching and scaling the startups.
+                        </aside>
+                    </div>
+                    <a class="continue-reading text-main" href="#">Continue reading</a>
+                </section>
+
+            </div>
         </main>
 
-        <footer>
-            <p>&copy; 2026 Sabtain Ali. All rights reserved.</p>
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a class="nav-link text-main" href="mailto:sabtainalipk144@gmail.com">sabtainalipk144@gmail.com</a>
+                <a class="nav-link text-main" href="https://github.com/sabtain05">github.com/sabtain05</a>
+                <a class="nav-link text-main" href="rss.xml">RSS</a>
+            </div>
+            <p class="copyright">Published from Islamabad, Pakistan. © 2026 Sabtain Ali.</p>
         </footer>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
