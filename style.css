@@ -73,7 +73,7 @@ a {
 .site-title {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 19px;
+    font-size: 30px;
     transition: color 0.2s;
 }
 
@@ -90,7 +90,7 @@ a {
 
 .nav-link {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 18px;
     transition: color 0.2s;
 }
 
@@ -134,7 +134,7 @@ a {
 
 
 .bio-text {
-    font-size: 19.5px;
+    font-size: 25px;
     line-height: 1.65;
 }
 
@@ -154,7 +154,7 @@ a {
 
 .section-label {
     font-family: var(--font-sans);
-    font-size: 11.5px;
+    font-size: 15px;
     color: var(--text-dim);
     font-weight: normal;
 }
@@ -174,7 +174,7 @@ a {
 
 .project-name {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     white-space: nowrap;
 }
 
@@ -293,7 +293,7 @@ a {
 
 .continue-reading {
     font-family: var(--font-sans);
-    font-size: 12px;
+    font-size: 15px;
     display: inline-block;
     margin-top: 1.25rem;
     padding-bottom: 2px;
@@ -321,7 +321,7 @@ a {
 .copyright {
     margin-top: 1rem;
     font-style: italic;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-dim);
 }
 
@@ -365,7 +365,7 @@ a {
     font-size: 17px;
 }
 
-/* --- Single Essay Reading Styles --- */
+
 .article-header {
     margin-bottom: 2.5rem;
 }
